@@ -2,7 +2,5 @@ language: python
 
 install:
   - "pip install -r requirements.txt"
-#before_script:
-#  - "export DISPLAY=:99.0"
 script:
   - "./run-test.sh"
