@@ -7,7 +7,6 @@ function test_case {
   ./app.py &>> /tmp/flasklog.log &
   sleep 1
   for i in {1..1000}; do curl -s http://localhost:5000 >/dev/null && curl -s http://localhost:5000/static/tux.png >/dev/null;done
-  ps aux | grep "app.py"
   kill $(ps aux | egrep '.*py.*app.py$' | awk '{ print $2 }')
 }
 

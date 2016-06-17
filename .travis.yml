@@ -4,12 +4,10 @@ matrix:
     include:
     - python: "2.7"
       env: MXENV=py27
-    - python: "pypy3"
-      env: MXENV=pypy3
-    - python: "3.4"
-      env: MXENV=py34
     - python: "3.3"
       env: MXENV=py33
+    - python: "3.4"
+      env: MXENV=py34
     - python: "3.5"
       env: MXENV=py35
     - python: "pypy"
