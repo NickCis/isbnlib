@@ -10,10 +10,11 @@ function test_case {
   kill $(ps aux | egrep '.*python.*app.py$' | awk '{ print $2 }')
 }
 
-for i in $(seq 1 5); do
+for i in $(seq 1 3); do
   echo "Run number ${i}"
   test_case
 done
 
-# cat /tmp/flasklog.log
-grep "Errno 11" /tmp/flasklog.log
+# check log to see if there are errors 
+[[ -z $(grep "Errno 11" /tmp/flasklog.log) ]] && exit 0
+exit 1
