@@ -21,7 +21,6 @@ _build/
 *.vim
 .tox/
 *.log
-*.sh
 .coverage
 .metacache
 *tasks
