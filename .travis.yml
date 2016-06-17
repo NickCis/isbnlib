@@ -20,7 +20,6 @@ install:
 
 script:
   - "./run-test.sh"
-  - if [[ $MXENV == 'pypy3' ]]; then ps aux | grep "app.py"; fi
 
 notifications:
     email: false
