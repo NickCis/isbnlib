@@ -19,12 +19,10 @@ function test_case {
 
 for i in $(seq 1 3); do
   echo "Run number ${i}"
-  # skip non-Flask errors
-  test_case || true
-  #[[ ! $? = 0 ]] && echo "Non-Flask error $?"
+  test_case || true   # skip non-Flask errors
 done
 
 # check log to see if there are Flask errors 
-[[ -z $(grep "Errno" /tmp/flasklog.log) ]] && exit 0
+[[ -f /tmp/flasklog.log ]] && [[ -z $(grep "Errno" /tmp/flasklog.log) ]] && exit 0
 cat /tmp/flasklog.log
 exit 1
