@@ -6,7 +6,14 @@ rm -f /tmp/flasklog.log
 function test_case {
   ./app.py &>> /tmp/flasklog.log &
   sleep 1
-  for i in {1..1000}; do curl -s http://localhost:5000 >/dev/null && curl -s http://localhost:5000/static/tux.png >/dev/null;done
+  for i in {1..100}
+  do 
+    curl -s http://localhost:5000 >/dev/null
+    curl -s http://localhost:5000/static/tux.png >/dev/null
+    curl -s http://localhost:5000/static/tux1.png >/dev/null
+    curl -s http://localhost:5000/static/tux2.png >/dev/null
+    touch app.py
+  done
   kill $(ps aux | egrep '.*py.*app.py$' | awk '{ print $2 }')
 }
 
