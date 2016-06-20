@@ -15,13 +15,13 @@ function test_case {
     touch app.py
   done
   kill $(ps aux | egrep '.*py.*app.py$' | awk '{ print $2 }')
-  [[ ! -z $? ]] && echo "Non-Flask error $?"
 }
 
 for i in $(seq 1 3); do
   echo "Run number ${i}"
   # skip non-Flask errors
   test_case 2>/dev/null
+  [[ ! $? = 0 ]] && echo "Non-Flask error $?"
 done
 
 # check log to see if there are Flask errors 
