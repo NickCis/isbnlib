@@ -23,6 +23,6 @@ for i in $(seq 1 3); do
 done
 
 # check log to see if there are errors 
-[[ -z $(grep "Errno 11" /tmp/flasklog.log) ]] && exit 0
+[[ -z $(grep "Errno" /tmp/flasklog.log) ]] && exit 0
 cat /tmp/flasklog.log
 exit 1
