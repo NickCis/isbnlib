@@ -5,7 +5,7 @@ rm -f /tmp/flasklog.log
 
 function test_case {
   ./app.py &>> /tmp/flasklog.log &
-  sleep 1
+  sleep 5
   for i in {1..100}
   do 
     curl -s http://localhost:5000 >/dev/null
