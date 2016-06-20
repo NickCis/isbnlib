@@ -19,7 +19,7 @@ function test_case {
 
 for i in $(seq 1 3); do
   echo "Run number ${i}"
-  test_case || true   # skip non-Flask errors
+  test_case && [[ ! $? = 0 ]] && echo "Non Flask error $?" || true   # skip non-Flask errors
 done
 
 # check log to see if there are Flask errors 
