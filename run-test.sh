@@ -20,7 +20,7 @@ function test_case {
 for i in $(seq 1 3); do
   echo "Run number ${i}"
   # skip non-Flask errors
-  test_case 2>/dev/null
+  test_case 2>/dev/null || true
   [[ ! $? = 0 ]] && echo "Non-Flask error $?"
 done
 
