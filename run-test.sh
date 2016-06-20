@@ -19,10 +19,10 @@ function test_case {
 
 for i in $(seq 1 3); do
   echo "Run number ${i}"
-  test_case
+  test_case 2>/dev/null
 done
 
-# check log to see if there are errors 
+# check log to see if there are Flask errors 
 [[ -z $(grep "Errno" /tmp/flasklog.log) ]] && exit 0
 cat /tmp/flasklog.log
 exit 1
