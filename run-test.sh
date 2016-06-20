@@ -24,4 +24,5 @@ done
 
 # check log to see if there are errors 
 [[ -z $(grep "Errno 11" /tmp/flasklog.log) ]] && exit 0
+cat /tmp/flasklog.log
 exit 1
