@@ -15,6 +15,7 @@ function test_case {
     touch app.py
   done
   kill $(ps aux | egrep '.*py.*app.py$' | awk '{ print $2 }')
+  [[ $? != 0 ]] && echo "Non-Flask error $?"
 }
 
 for i in $(seq 1 3); do
